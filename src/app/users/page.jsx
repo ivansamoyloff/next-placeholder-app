@@ -1,6 +1,6 @@
 const Users = async () => {
 
-  const users = await fetch(`${process.env.API_BASE}/users`);
+  const users = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/users`);
   const data = await users.json();
 
   return (

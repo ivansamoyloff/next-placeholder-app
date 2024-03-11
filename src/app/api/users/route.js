@@ -1,5 +1,5 @@
 export async function GET(){
-  const res = await fetch(`${process.env.API_BASE}/users`,{
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/users`,{
     headers:{
       'Content-Type': 'application/json',
     }
