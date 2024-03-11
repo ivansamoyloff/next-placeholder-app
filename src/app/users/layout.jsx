@@ -1,9 +1,28 @@
+import Link from 'next/link'
 
-export default function UsersLayout({ children }) {
+const UsersLayout = async ({ children }) => {
+
+  const users = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/users`);
+  const data = await users.json();
+
   return (
-    <div>
-      <h1>Users Layout</h1>
-        {children}
+    <div className={`usersLayout`}>
+      {data?.length ? (
+        <nav>
+          {data.map(
+            (user) => 
+              <li key={user.id}>
+                <Link href={`/users/${user.id}`}>
+                  {user.name}
+                </Link>
+              </li>
+            )
+          }
+        </nav>
+      ) : null}
+      {children}
     </div>
   );
 }
+
+export default UsersLayout;

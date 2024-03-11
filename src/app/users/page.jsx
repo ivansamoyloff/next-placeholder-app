@@ -1,12 +1,26 @@
+import Link from 'next/link'
+
 const Users = async () => {
 
   const users = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/users`);
   const data = await users.json();
 
   return (
-    <main>
+    <main className={`usersProfile page`}>
       <h2>Users Page!</h2>
-      {data?.length ? data.map((user) => <h3 key={user.id}>{user.name}</h3>) : null}
+      {data?.length ? (
+        <nav className='mainProfiles'>
+          {data.map(
+            (user) => 
+              <li key={user.id}>
+                <Link href={`/users/${user.id}`}>
+                  {user.name}
+                </Link>
+              </li>
+            )
+          }
+        </nav>
+      ) : null}
     </main>
   );
 }

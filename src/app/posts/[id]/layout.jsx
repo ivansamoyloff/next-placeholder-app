@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 
-const UsersProfileLayout = async ({ children }) => {
+const PostLayout = async ({ children }) => {
 
   return (
-    <main className={`usersProfile`}>
+    <main className={`post`}>
       <Suspense fallback={<p>Loading ...</p>}>
         {children}
       </Suspense>
@@ -11,4 +11,4 @@ const UsersProfileLayout = async ({ children }) => {
   );
 }
 
-export default UsersProfileLayout;
+export default PostLayout;

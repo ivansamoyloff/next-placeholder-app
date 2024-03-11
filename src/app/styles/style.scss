@@ -7,6 +7,10 @@
   padding: 0;
   list-style-type: none;
 }
+html,body{
+  height: 100%;
+  width: 100%;
+}
 
 .header{
 
@@ -15,11 +19,62 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+    padding: 15px 0;
+    border-bottom: 3px solid ;
+    width: 100%;
+    height: 5%;
     &Link{
-
+      padding: 10px 14px;
+      border-bottom: 1px solid transparent;
+      &:active{
+        color: forestgreen;
+      }
       &.active{
-        text-decoration: underline;
+        border-bottom-color: black;
       }
     }
   }
 }
+
+.users, .post{
+  &Layout{
+    display: flex;
+    width: 100%;
+    height: 90%;
+
+    nav{
+      width: 20%;
+      border-right: 3px solid black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+    }
+  }
+  &Profile{
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+
+    
+
+    &.page {
+      align-items: center;
+      h2{
+        width: 100%;
+        text-align: center;
+      }
+    }
+    .mainProfiles{
+      border-right: none;
+      gap: 20px;
+      width: auto;
+    }
+  }
+
+}
+
